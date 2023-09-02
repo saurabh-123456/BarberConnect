@@ -10,6 +10,9 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
+// available routes
+app.use("/api/auth", require("./routes/auth"));
+
 const URL = process.env.mongo_URL;
 console.log(URL);
 
