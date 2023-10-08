@@ -10,6 +10,8 @@ const port = 8000;
 app.use(express.json());
 app.use(cors());
 
+app.use(express.json());   // middleware to use request.body
+
 // available routes
 app.use("/api/auth", require("./routes/auth"));
 
@@ -26,7 +28,7 @@ mongoose
   })
   .catch((e) => console.log(e));
 
-// app.use("/api/auth", require("./routes/auth"));
+app.use("/api/auth", require("./routes/auth"));
 
 app.listen(port, () => {
   console.log(`BarberConnect is listening on port ${port}`);
